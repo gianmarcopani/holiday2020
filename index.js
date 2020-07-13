@@ -72,11 +72,13 @@ app.post('/upload', upload.single('image'), (req, res, next) => {
     }
 });
 
+port = process.env.PORT || 80;
+
 https.createServer({
   key: fs.readFileSync('./sslcert/server.key'),
   cert: fs.readFileSync('./sslcert/server.cert')
 }, app)
-.listen(8080, function () {
+.listen(port, function () {
   console.log('Example app listening on port 8080 Go to https://localhost:8080/')
 })
 
