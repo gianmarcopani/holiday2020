@@ -190,6 +190,7 @@ function clickEffettuaPagamento() {
     var ospite = new Array();
     var check1, check2;
 
+    
     for(var i=0; i<soggiorno.ospiti; i++) {
         if(i==0) {
             categorie.push(document.getElementById('categoria'+i).options[document.getElementById('categoria'+i).selectedIndex].value);
@@ -207,31 +208,35 @@ function clickEffettuaPagamento() {
 
         }
     }
-
+    
     //Controllo campi ospiti.
-    for(var i=0; i<soggiorno.ospiti; i++) {
-        if(categorie[i] == '') {
-            check1=false;
-            return;
-        }
-        i++;
-        for(var j=0; j<6; j++) {
-            console.log(i)
-            if(ospite[i][j] == '') {
+    if(!soggiorno.ospiti==1)
+    {
+         for(var i=0; i<soggiorno.ospiti; i++) {
+            if(categorie[i] == '') {
                 check1=false;
                 return;
             }
+            i++;
+            for(var j=0; j<6; j++) {
+                console.log(i)
+                if(ospite[i][j] == '') {
+                  check1=false;
+                    return;
+                }
+            }
         }
     }
-
+    
     for(var i=1; i<=4; i++) {
         if(document.getElementById(i).value == '') {
             check2=false;
             return;
         }
     }
-
-    if(check1 != false && check2 != false) {
+    
+    if((check1 != false && check2 != false) || (soggiorno.ospiti == 1)) {
+        console.log("ospiti uguale 1 = "+soggiorno.ospiti);
         var cat = JSON.stringify(categorie);
         var osp = JSON.stringify(ospite);
         var res = richiedi("../../controller/prenotazione?action=notificaEffettuaPagamento&categorie="+cat+"&datiOspiti="+osp+"&id_all="+id_alloggio+
