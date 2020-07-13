@@ -236,7 +236,7 @@ function clickEffettuaPagamento() {
     }
     
     if((check1 != false && check2 != false) || (soggiorno.ospiti == 1)) {
-        console.log("ospiti uguale 1 = "+soggiorno.ospiti);
+        
         var cat = JSON.stringify(categorie);
         var osp = JSON.stringify(ospite);
         var res = richiedi("../../controller/prenotazione?action=notificaEffettuaPagamento&categorie="+cat+"&datiOspiti="+osp+"&id_all="+id_alloggio+
