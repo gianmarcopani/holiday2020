@@ -72,7 +72,7 @@ app.post('/upload', upload.single('image'), (req, res, next) => {
     }
 });
 
-port = process.env.PORT || 80;
+var port = process.env.PORT || 80;
 
 https.createServer({
   key: fs.readFileSync('./sslcert/server.key'),
