@@ -1,0 +1,89 @@
+.navbar-custom {
+    background-color: #000000;
+}
+
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+    color: rgba(255, 255, 255, .8);
+}
+
+
+/*cambiamo il colore al link della navbar */
+
+.navbar-custom .navbar-nav .nav-link {
+    color: #ffffff
+}
+
+.btn-outline-primary {
+    color: white;
+    background-color: #000000;
+    border-color: #ffffff;
+}
+
+.btn-outline-primary:hover {
+    color: #ffffff;
+    background-color: rgb(74, 175, 79);
+    border-color: rgb(74, 175, 79);
+}
+
+.dropdown-menu {
+    background-color: #000000;
+}
+
+.dropdown-item {
+    color: #ffffff;
+}
+
+a.dropdown-item:active {
+    background-color: rgb(74, 175, 79);
+}
+
+body {
+    background-color: #f8f9fa;
+}
+
+.carta {
+    width: auto;
+    margin: auto;
+    padding: 10px;
+}
+
+label {
+    text-align: center;
+}
+
+h4 {
+    text-align: center;
+}
+
+.form-control {
+    width: auto;
+    margin: auto;
+}
+
+.btn-link {
+    color: white;
+}
+
+.btn-link:hover {
+    color: black;
+    background-color: #f8f9fa;
+}
+
+a {
+    color: green;
+}
+
+a:hover {
+    color: green;
+}
+
+p {
+    color: white;
+    display: inline;
+}
+
+.mybtn {
+    width: auto;
+    margin: auto;
+}

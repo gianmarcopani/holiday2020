@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="it"></html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Holiday - Gestione Annunci</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../view/css/GestioneAnnunci.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src = "../../view/js/richiedi.js"></script>
+    <script src = "../../view/js/navigationbar.js"></script>
+    <script src = "../../view/js/logout.js"></script>
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="../../view/Index.html">Holiday</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <a id="ns" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Gestione
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a id="prof" class="dropdown-item" href="../../view/GestioneProfilo.html">Gestione Profilo</a>
+                        <div class="dropdown-divider"></div>
+                        <a id = "pren" class="dropdown-item" href="../../view/GestionePrenotazioni.html">Gestione Prenotazioni</a>
+                        <div class="dropdown-divider"></div>
+                        <a id="gestann" class="dropdown-item" href="../../view/GestioneAnnunci.html">Gestione Annunci</a>
+                        <div class="dropdown-divider"></div>
+                        <a id="gestall" class="dropdown-item" href="../../view/GestioneAlloggi.html">Gestione Alloggi</a>
+                    </div>
+                    <li class="nav-item">
+                        <a id="comquest" class="nav-link" href="../../view/ComunicazioneQuestura.html">Comunicazione Questura</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="rend" class="nav-link" href="../../view/Rendicontazione.html">Rendicontazione</a>
+                    </li>
+
+            </ul>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" onClick="clickLogout()">Logout</button>
+        </div>
+    </nav>
+    <!-- FINE NAVBAR -->
+    <br>
+
+    <div class="container-fluid">
+        <div class="row justify-content-md-center">
+            <div class="col-12 col-sm-8 col-md-9 ">
+                <!-- INSERISCI ANNUNCIO -->
+                <button id="insert" type="button" class="btn btn-success" data-toggle="modal" data-target="#modalInserisci">
+                    Inserisci annuncio
+                </button>
+                <div class="modal fade" id="modalInserisci" tabindex="-1" role="dialog" aria-labelledby="modalInserisci" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="modalInserisci">Inserisci annuncio</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form enctype="multipart/form-data">
+                                    <label for="titolo"><strong>Titolo</strong></label>
+                                    <input type="text" class="form-control" id="titolo" placeholder="Inserisci il titolo dell'annuncio" value="" required>
+                                    <br>
+                                    <label for="posizione"><strong>Posizione</strong></label>
+                                    <input type="text" class="form-control" id="posizione" placeholder="Inserisci la posizione dell'alloggio" value="" required>
+                                    <br>
+                                    <label for="disponibileDa"><strong>Disponibile da</strong></label>
+                                    <input type="text" class="form-control" id="disponibileDa" placeholder="Inserisci data inizio disponibilità" value="" onfocus="(this.type='date')" required>
+                                    <br>
+                                    <label for="disponibileFinoA"><strong>Disponibile fino a</strong></label>
+                                    <input type="text" class="form-control" id="disponibileFinoA" placeholder="Inserisci data fine disponibilità" value="" onfocus="(this.type='date')" required>
+                                    <br>
+                                    <label for="prezzo"><strong>Prezzo alloggio €/notte</strong></label>
+                                    <input type="text" class="form-control" id="prezzo" placeholder="Prezzo alloggio €/notte" value="" required>
+                                    <br>
+                                    <label for="tassa"><strong>Tassa soggiorno €</strong></label>
+                                    <input type="text" class="form-control" id="tassa" placeholder="Tassa soggiorno €" value="" required>
+                                    <br>       
+                                    <label for="num_camere_max"><strong>Numero camere</strong></label>
+                                    <input type="number" min="1" class="form-control" id="num_camere_max" placeholder="Camere dell'alloggio" value="" required>
+                                    <br>
+                                    <label for="num_ospiti_max"><strong>Numero ospiti</strong></label>
+                                    <input type="number" min="1" class="form-control" id="num_ospiti_max" placeholder="Numero massimo ospiti" value="" required>
+                                    <br>
+                                    <label for="bagni"><strong>Bagni</strong></label>
+                                    <input type="number" min="1" class="form-control" id="bagni" placeholder="Bagni disponibili" value="" required>
+                                    <br>
+                                    <label for="lettiSingoli"><strong>Letti singoli</strong></label>
+                                    <input type="number" min="1" class="form-control" id="lettiSingoli" placeholder="Numero letti singoli" value="" required>
+                                    <br>
+                                    <label for="lettiMatrimoniali"><strong>Letti Matrimoniali</strong></label>
+                                    <input type="number" min="1" class="form-control" id="lettiMatrimoniali" placeholder="Numero letti matrimoniali" value="" required>
+                                    <br>                                                         
+                                    <label for="descrizione"><strong>Descrizione</strong></label>
+                                    <textarea class="form-control" id="descrizione" placeholder="Inserisci la descrizione dell'annuncio" rows="3" value="" required></textarea>
+                                    <br>
+                                    <input type="checkbox" id="colazione" name="colazione" value="">
+                                    <label for="colazione"> Colazione</label>
+                                    <br>
+                                    <input type="checkbox" id="parcheggio" name="parcheggio" value="">
+                                    <label for="parcheggio"> Parcheggio</label>
+                                    <br> 
+                                    <input type="checkbox" id="piscina" name="piscina" value="">
+                                    <label for="piscina"> Piscina</label>
+                                    <br>
+                                    <label for="foto"><strong>Foto</strong></label>
+                                    <input type="file" class="form-control-file" id="file-upload" multiple data-max="5" accept="image/*" name="photo">
+                                    <hr>
+                                    <button id="butt" value="upload" class="btn btn-success" onClick='clickConfermaInserisci()'>Conferma</button>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- FINE INSERISCI ANNUNCIO -->
+
+                <br><br>
+
+                <div id="accordion"></div>
+            </div>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>        
+        <script src = "../../view/js/gestioneannunci.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+        <!--<script>
+            const btn=document.querySelector('button[type=submit]');
+            document.querySelector('form').addEventListener('change',function(ev){
+                if(ev.target.type=='file') {
+                    const inps=[...document.querySelectorAll('button[type=file]')];
+                    btn.disabled=inps.some(inp=>{
+                        if (inp.files.length>inp.dataset.max){
+                            alert(`Puoi caricare un massimo di ${inp.dataset.max} foto sul tuo annuncio!`);
+                            return true;
+                        }
+                    })
+                }
+            });
+        </script>-->
+
+</body>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Holiday - Rendicontazione</title>
+    <link rel="stylesheet" type="text/css" href="../../view/css/Rendicontazione.css"/>
+  
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4-4.1.1/jq-3.3.1/dt-1.10.18/r-2.2.2/datatables.min.css"/>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4-4.1.1/jq-3.3.1/dt-1.10.18/r-2.2.2/datatables.min.js"></script>
+
+    <script src="../../view/js/richiedi.js"></script>
+    <script src = "../../view/js/navigationbar.js"></script>
+    <script src="../../view/js/rendicontazione.js"></script>
+    <script src = "../../view/js/logout.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    <script src="https://unpkg.com/jspdf-autotable"></script>
+  
+    <script>
+    const sleep = (milliseconds) => {
+        return new Promise(resolve => setTimeout(resolve, milliseconds))
+    }
+  
+    sleep(500).then(() => {
+  
+      $(document).ready(function() {
+        // Setup - add a text input to each footer cell
+        $('#example tfoot th').each( function () {
+          var title = $(this).text();
+          $(this).html( '<input type="text" placeholder="Cerca '+title+'" />' );
+        } );
+  
+        // DataTable
+        var table = $('#example').DataTable();  
+  
+        // Apply the search
+        table.columns().every( function () {
+          var that = this;
+      
+          $( 'input', this.footer() ).on( 'keyup change clear', function () {
+            if ( that.search() !== this.value && this.id!="inputID" ) {
+              that
+                .search( this.value )
+                .draw();
+            }
+          } );
+        } );
+      } );
+      $('#example').DataTable({
+        "destroy":true, 
+        "language": {
+          "sEmptyTable":     "Nessun dato presente nella tabella",
+          "sInfo":           "Vista da _START_ a _END_ di _TOTAL_ elementi",
+          "sInfoEmpty":      "Vista da 0 a 0 di 0 elementi",
+          "sInfoFiltered":   "(filtrati da _MAX_ elementi totali)",
+          "sInfoPostFix":    "",
+          "sInfoThousands":  ".",
+          "sLengthMenu":     "Visualizza _MENU_ elementi",
+          "sLoadingRecords": "Caricamento...",
+          "sProcessing":     "Elaborazione...",
+          "sSearch":         "Cerca:",
+          "sZeroRecords":    "La ricerca non ha portato alcun risultato.",
+          "oPaginate": {
+              "sFirst":      "Inizio",
+              "sPrevious":   "Precedente",
+              "sNext":       "Successivo",
+              "sLast":       "Fine"
+          },
+          "oAria": {
+              "sSortAscending":  ": attiva per ordinare la colonna in ordine crescente",
+              "sSortDescending": ": attiva per ordinare la colonna in ordine decrescente"
+          }
+        },
+        "responsive":true,
+        "searching":false,
+        "paging":false,
+      });
+    })
+    </script>
+  
+    
+    <style>
+        tfoot input {
+            width: 100%;
+            padding: 3px;
+            box-sizing: border-box;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="../../view/Index.html">Holiday</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <a id="ns" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Gestione
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a id="prof" class="dropdown-item" href="../../view/GestioneProfilo.html">Gestione Profilo</a>
+                        <div class="dropdown-divider"></div>
+                        <a id = "pren" class="dropdown-item" href="../../view/GestionePrenotazioni.html">Gestione Prenotazioni</a>
+                        <div class="dropdown-divider"></div>
+                        <a id="gestann" class="dropdown-item" href="../../view/GestioneAnnunci.html">Gestione Annunci</a>
+                        <div class="dropdown-divider"></div>
+                        <a id="gestall" class="dropdown-item" href="../../view/GestioneAlloggi.html">Gestione Alloggi</a>
+                    </div>
+                    <li class="nav-item">
+                        <a id="comquest" class="nav-link" href="../../view/ComunicazioneQuestura.html">Comunicazione Questura</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="rend" class="nav-link" href="../../view/Rendicontazione.html">Rendicontazione</a>
+                    </li>
+
+            </ul>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" onClick="clickLogout()">Logout</button>
+        </div>
+    </nav>
+    <!-- FINE NAVBAR -->
+    <br>
+    <div id="warning"></div>
+
+    <!-- TABELLA RENDICONTAZIONE -->
+    <br>
+    <div class="container-fluid">
+        <table id="example" class="table table-striped table-bordered" style="width:100%">
+            <thead>
+                <tr>
+                    <th>ID Prenotazione</th>
+                    <th>Nome</th>
+                    <th>Cognome</th>
+                    <th>Data di nascita</th>
+                    <th>Luogo di nascita</th>
+                    <th>Luogo soggiorno</th>
+                    <th>Inizio soggiorno</th>
+                    <th>Fine soggiorno</th>
+                    <th>Categoria</th>
+                    <th>Tassa di soggiorno in €</th>
+                </tr>
+            </thead>
+            <tbody id="rendicontazione"></tbody>
+        
+        
+        </table>
+   
+        <br>
+        <button onClick='clickInviaRendiconto()' type="submit" class="btn btn-success">Invia rendiconto</button>
+    </div>
+    <!-- TABELLA RENDICONTAZIONE -->
+
+</body>
+</html>

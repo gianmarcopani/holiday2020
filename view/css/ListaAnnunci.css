@@ -1,0 +1,71 @@
+.navbar-custom {
+    background-color: #000000;
+}
+
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+    color: rgba(255, 255, 255, .8);
+}
+
+
+/*cambiamo il colore al link della navbar */
+
+.navbar-custom .navbar-nav .nav-link {
+    color: #ffffff
+}
+
+.btn-outline-primary {
+    color: white;
+    background-color: #000000;
+    border-color: #ffffff;
+}
+
+.btn-outline-primary:hover {
+    color: #ffffff;
+    background-color: rgb(74, 175, 79);
+    border-color: rgb(74, 175, 79);
+}
+
+.dropdown-menu {
+    background-color: #000000;
+}
+
+.dropdown-item {
+    color: #ffffff;
+}
+
+body {
+    background-color: rgb(255, 255, 255);
+}
+
+img {
+    height: 220px;
+}
+
+.card-link {
+    font-size: 150%;
+}
+
+a {
+    color: rgb(74, 175, 79);
+}
+
+a:hover {
+    color: #000000;
+}
+
+a.page-link {
+    color: rgb(6, 158, 39);
+}
+
+a.page-link:hover {
+    color: rgb(6, 158, 39);
+}
+
+a.dropdown-item:active {
+    background-color: rgb(74, 175, 79);
+}
+
+.card {
+    width: 100%;
+}

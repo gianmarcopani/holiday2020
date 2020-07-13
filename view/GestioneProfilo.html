@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="it"></html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Holiday - Gestione Profilo</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../view/css/GestioneProfilo.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src = "../../view/js/richiedi.js"></script>
+    <script src = "../../view/js/navigationbar.js"></script>
+    <script src = "../../view/js/gestioneprofilo.js"></script>
+    <script src = "../../view/js/logout.js"></script>
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="../../view/Index.html">Holiday</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <a id="ns" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Gestione
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a id="prof" class="dropdown-item" href="../../view/GestioneProfilo.html">Gestione Profilo</a>
+                        <div class="dropdown-divider"></div>
+                        <a id = "pren" class="dropdown-item" href="../../view/GestionePrenotazioni.html">Gestione Prenotazioni</a>
+                        <div class="dropdown-divider"></div>
+                        <a id="gestann" class="dropdown-item" href="../../view/GestioneAnnunci.html">Gestione Annunci</a>
+                        <div class="dropdown-divider"></div>
+                        <a id="gestall" class="dropdown-item" href="../../view/GestioneAlloggi.html">Gestione Alloggi</a>
+                    </div>
+                    <li class="nav-item">
+                        <a id="comquest" class="nav-link" href="../../view/ComunicazioneQuestura.html">Comunicazione Questura</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="rend" class="nav-link" href="../../view/Rendicontazione.html">Rendicontazione</a>
+                    </li>
+
+            </ul>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" onClick="clickLogout()">Logout</button>
+        </div>
+    </nav>
+    <!-- FINE NAVBAR -->
+    <br>
+    <!-- INIZIO GESTIONE PROFILO-->
+    <div class="container-fluid">
+        <div class="row justify-content-md-center">
+            <div id="blocco" class="col-12 col-sm-8 col-md-9 ">
+
+                    <div id="utente" class="carta card">
+                        <div class="card-header bg-success" id="headingUno">
+                            <h5 class="mb-0">
+                                I tuoi dati
+                            </h5>
+                        </div>      
+                        <div class="card-body">
+                                <ul id="datiProfilo"></ul>
+
+                            <br>
+                                <!-- MODIFICA PROFILO -->
+                                <button type="button" class="btn btn-dark float-right mr-1" data-toggle="modal" data-target="#modalModifica">
+                                    Modifica
+                                </button>
+                                <div class="modal fade" id="modalModifica" tabindex="-1" role="dialog" aria-labelledby="modalModifica" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title" id="modalModifica">Modifica dati profilo</h4>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form>                                                                 
+                                                    <label for="psw"><strong>Password</strong></label>
+                                                    <input type="password" class="form-control" id="psw" placeholder="Modifica la tua password" value="">
+                                                    <br>
+                                                    <label for="confermapsw"><strong>Conferma Password</strong></label>
+                                                    <input type="password" class="form-control" id="confermapsw" placeholder="Conferma modifica password" value="">
+                                                    <hr>
+                                                    <label for="telefono"><strong>Telefono</strong></label>
+                                                    <input type="tel" class="form-control" id="telefono" placeholder="Modifica il tuo numero di telefono (XXXXXXXXXX)" value="" pattern="[0-9]{10}" required>
+                                                    <hr>
+                                                    <label for="residenza"><strong>Residenza</strong></label>
+                                                    <input type="ldr" class="form-control" id="ldr" placeholder="Modifica la tua residenza" value="" required>
+                                                    <hr>
+                                                    <label for="indirizzo"><strong>Indirizzo</strong></label>
+                                                    <input type="idr" class="form-control" id="idr" placeholder="Modifica il tuo indirizzo" value="" required>
+                                                </form>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button onclick='clickConfermaModifica()' type="submit" class="btn btn-success">Conferma</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- FINE MODIFICA ANNUNCIO -->
+
+                                <!-- FINE MODAL CANCELLAZIONE-->
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>  
+ 
+</body>

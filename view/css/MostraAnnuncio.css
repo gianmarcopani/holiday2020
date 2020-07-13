@@ -1,0 +1,75 @@
+.navbar-custom {
+    background-color: #000000;
+}
+
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+    color: rgba(255, 255, 255, .8);
+}
+
+
+/*cambiamo il colore al link della navbar */
+
+.navbar-custom .navbar-nav .nav-link {
+    color: #ffffff
+}
+
+.btn-outline-primary {
+    color: white;
+    background-color: #000000;
+    border-color: #ffffff;
+}
+
+.btn-outline-primary:hover {
+    color: #ffffff;
+    background-color: rgb(74, 175, 79);
+    border-color: rgb(74, 175, 79);
+}
+
+.dropdown-menu {
+    background-color: #000000;
+}
+
+.dropdown-item {
+    color: #ffffff;
+}
+
+body {
+    background-color:#ffffff;
+}
+
+.carousel-item {
+    height: 400px;
+}
+
+.immagine{
+    height: 400px;
+}
+/*.card {
+    background-color: rgba(255, 255, 255, 0.658);
+}*/
+
+.form-inline>* {
+    margin: 2px 2px;
+}
+
+a.dropdown-item:active {
+    background-color: rgb(74, 175, 79);
+}
+
+.card-body{
+    width: 100%;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+  }
+
+.prezzo{
+
+    color: rgb(74, 175, 79);
+    text-align: right;
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="it"></html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Holiday - Registrazione</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../view/css/Registrazione.css">
+    <script src = "../../view/js/richiedi.js"></script>
+    <script src = "../../view/js/registrazione.js"></script>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="../../view/Index.html">Holiday</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto"></ul>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" onclick='window.open("../../view/Login.html", "_self", true)'>Accedi</button>
+        </div>
+    </nav>
+    <br><br>
+    <!-- FINE NAVBAR -->
+
+    <div class="container-fluid">
+        <div class="row justify-content-md-center">
+            <div class="col-sm-5 mx-auto ">
+                <form onsubmit="return registra(document.getElementById('nome').value, document.getElementById('cognome').value, document.getElementById('email').value, document.getElementById('psw').value,
+                document.getElementById('cnf_psw').value, document.getElementById('telefono').value, document.getElementById('ddn').value, document.getElementById('ldn').value, document.getElementById('ldr').value, document.getElementById('idr').value,
+                document.getElementById('tipo').options[document.getElementById('tipo').selectedIndex].value)">
+                <div class="carta card">
+                    <div class="row justify-content-md-center">
+                        <div class="col-md-12 mb-3 text-center">
+                            <label for="nome"><h4>Nome</h4></label>
+                            <input type="text" class="form-control w-100" id="nome" placeholder="Inserisci il tuo nome" value="" required>
+                        </div>
+                        <br>
+                        <div class="col-md-12 mb-3 text-center">
+                            <label for="cognome"><h4>Cognome</h4></label>
+                            <input type="text" class="form-control w-100" id="cognome" placeholder="Inserisci il tuo cognome" value="" required>
+                        </div>
+                        <br>
+                        <div class="col-md-12 mb-3 text-center">
+                            <label for="email"><h4>Email</h4></label>
+                            <input type="email" class="form-control w-100" id="email" placeholder="Inserisci la tua email" value="" required>
+                        </div>
+                        <br>
+                        <div class="col-md-12 text-center mb-3">
+                            <label for="psw"><h4>Password</h4></label>
+                            <input type="password" class="form-control w-100" id="psw" placeholder="Inserisci la tua password" value="" required>
+                        </div>
+                        <br>
+                        <div class="col-md-12 text-center mb-3">
+                            <label for="cnf_psw"><h4>Conferma password</h4></label>
+                            <input type="password" class="form-control w-100" id="cnf_psw" placeholder="Conferma la tua password" value="" required>
+                        </div>
+                        <br>
+                        <div class="col-md-12 text-center mb-3">
+                            <label for="telefono"><h4>Telefono</h4></label>
+                            <input type="tel" class="form-control w-100" id="telefono" placeholder="Inserisci il tuo numero di telefono (XXXXXXXXXX)" value="" required>
+                        </div>
+                        <br>
+                        <div class="col-md-12 text-center mb-3">
+                            <label for="ddn"><h4>Data di nascita</h4></label>
+                            <input type="date" class="form-control w-100" id="ddn" placeholder="Inserisci la data di nascita" value="" onfocus="(this.type='date')" required>
+                        </div>
+                        <br>
+                        <div class="col-md-12 text-center mb-3">
+                            <label for="ldn"><h4>Luogo di nascita</h4></label>
+                            <input type="text" class="form-control w-100" id="ldn" placeholder="Inserisci il luogo di nascita" value="" required>
+                        </div>
+                        <br>
+                        <div class="col-md-12 text-center mb-3">
+                            <label for="ldr"><h4>Luogo di residenza</h4></label>
+                            <input type="text" class="form-control w-100" id="ldr" placeholder="Inserisci il luogo di residenza" value="" required>
+                        </div>
+                        <br>
+                        <div class="col-md-12 text-center mb-3">
+                            <label for="idr"><h4>Indirizzo di residenza</h4></label>
+                            <input type="text" class="form-control w-100" id="idr" placeholder="Inserisci l'indirizzo di residenza" value="" required>
+                        </div>
+                        <br>
+                        <div class="col-md-12 text-center mb-3">
+                            <label for="tipo"><h4>Tipo account</h4></label>
+                            <select class="custom-select d-block" id="tipo" required>
+                                <option>Affittuario</option>
+                                <option>Locatore</option>             
+                            </select>
+                        </div>
+                    </div>
+                    <br>
+                    <button type="submit" class="btn btn-lg btn-success">Registrati</button>
+                </div>
+                </form>
+            </div>
+
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js " integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj " crossorigin="anonymous "></script>
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js " integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo " crossorigin="anonymous "></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js " integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI " crossorigin="anonymous "></script>
+
+</body>

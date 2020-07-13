@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="it"></html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Holiday - Comunicazione Questura</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../view/css/ComunicazioneQuestura.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src = "../../view/js/richiedi.js"></script>
+    <script src = "../../view/js/navigationbar.js"></script>
+    <script src = "../../view/js/comunicazionequestura.js"></script>
+    <script src = "../../view/js/logout.js"></script>
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="../../view/Index.html">Holiday</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <a id="ns" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Gestione
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a id="prof" class="dropdown-item" href="../../view/GestioneProfilo.html">Gestione Profilo</a>
+                        <div class="dropdown-divider"></div>
+                        <a id = "pren" class="dropdown-item" href="../../view/GestionePrenotazioni.html">Gestione Prenotazioni</a>
+                        <div class="dropdown-divider"></div>
+                        <a id="gestann" class="dropdown-item" href="../../view/GestioneAnnunci.html">Gestione Annunci</a>
+                        <div class="dropdown-divider"></div>
+                        <a id="gestall" class="dropdown-item" href="../../view/GestioneAlloggi.html">Gestione Alloggi</a>
+                    </div>
+                    <li class="nav-item">
+                        <a id="comquest" class="nav-link" href="../../view/ComunicazioneQuestura.html">Comunicazione Questura</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="rend" class="nav-link" href="../../view/Rendicontazione.html">Rendicontazione</a>
+                    </li>
+
+            </ul>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" onClick="clickLogout()">Logout</button>
+        </div>
+    </nav>
+    <!-- FINE NAVBAR -->
+    <br>
+
+    <div class="container-fluid">
+        <div class="row justify-content-md-center">
+            <div class="col-12 col-sm-8 col-md-9 ">
+                <div id="accordion">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
